@@ -1,6 +1,7 @@
 package main
 
 import (
+	"crypto/sha256"
 	"fmt"
 	"reflect"
 	"strconv"
@@ -40,5 +41,23 @@ func main() {
 	fmt.Println(3)
 	arrRun := []rune(str)
 	fmt.Println(arrRun)
+
+	// 4
+	fmt.Println(4)
+	arByte := []byte(string(arrRun))
+	che := []byte("g")
+	fmt.Println(len(che))
+	fmt.Println(len(arByte))
+
+	fmt.Println(arByte)
+	for idx := 8; idx < len(che); idx++ {
+		arByte[idx] = che[idx-8]
+	}
+
+	fmt.Println(arByte)
+
+	h := sha256.Sum256(arByte)
+
+	fmt.Printf("%x", h)
 
 }
