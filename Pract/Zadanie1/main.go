@@ -45,16 +45,13 @@ func main() {
 	// 4
 	fmt.Println(4)
 	arByte := []byte(string(arrRun))
-	che := []byte("g")
-	fmt.Println(len(che))
-	fmt.Println(len(arByte))
+	che := []byte("g0-2024")
 
 	fmt.Println(arByte)
-	for idx := 8; idx < len(che); idx++ {
+	for idx,jdx := 8, 0; jdx < len(che); idx,jdx = idx+1,jdx+1 {
 		arByte[idx] = che[idx-8]
 	}
 
-	fmt.Println(arByte)
 
 	h := sha256.Sum256(arByte)
 
